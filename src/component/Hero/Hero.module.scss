@@ -1,0 +1,41 @@
+@import "../../variables.scss";
+
+.Hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 40px 120px;
+  @media (max-width: 1024px) {
+    padding: 20px 40px;
+  }
+  @media (max-width: 700px) {
+    flex-direction: column-reverse;
+  }
+  div:first-of-type {
+    @media (max-width: 700px) {
+      text-align: center;
+    }
+  }
+  p {
+    color: $grayish-violet;
+    line-height: 1.5;
+    padding-bottom: 10px;
+  }
+   button {
+    padding: 10px 30px;
+    border-radius: 20px;
+    height: 40px;
+    margin: 25px 0px 25px 0px;
+    min-width: 60px;
+ 
+  }
+  div:nth-of-type(2) {
+    text-align: right;
+  }
+  img {
+    width: 80%;
+    @media (min-width: 700px) {
+      width: 99%;
+    }
+  }
+}

@@ -1,0 +1,83 @@
+@import "../../variables.scss";
+
+.Input {
+  background: $background;
+  background: linear-gradient(180deg, $background 50%, $background-purple 50%);
+  padding: 40px 120px 20px;
+  @media (max-width: 1024px) {
+    padding: 40px 40px 20px;
+  }
+}
+
+.inputContainer {
+  width: 100%;
+  min-height: 100px;
+  background-color: $violet;
+  background-image: url("../../assets/images/bg-shorten-desktop.svg");
+  margin: 0 auto;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  white-space: nowrap;
+  @media (max-width: 700px) {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  input {
+    height: 50px;
+    width: 80%;
+    border-radius: 5px;
+    padding: 0px 30px;
+    margin: 25px 0px 25px 10px;
+    flex-basis: calc(100% / 1.5);
+    @media (max-width: 700px) {
+      flex-basis: 0;
+      width: auto;
+      margin: 25px 20px 10px;
+      font-size: 0.8rem;
+      padding: 17px;
+      max-height: 50px;
+    }
+  }
+
+  ::placeholder {
+    color: $grayish-violet;
+    @media (max-width: 700px) {
+      text-align: center;
+    }
+  }
+
+  button {
+    height: 50px;
+    min-width: 120px;
+    border-radius: 5px;
+    padding: 10px 30px;
+    margin: 25px 40px 25px -30px;
+     @media(max-width: 1000px) {
+      padding: 10px 20px;
+    }
+    @media (max-width: 700px) {
+      margin: 10px 20px 25px;
+    }
+  }
+
+  p {
+    color: $red;
+    flex-basis: 100%;
+    margin-top: -20px;
+    font-size: 0.8rem;
+    font-style: italic;
+    font-weight: $light;
+    padding: 10px 0 20px 40px;
+  }
+}
+
+.empty {
+  border: 0.5px solid red;
+  margin-bottom: 10px;
+}
+
+.empty::placeholder {
+  color: $red;
+}

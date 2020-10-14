@@ -1,0 +1,36 @@
+@import '../../variables.scss';
+
+header {
+  background-color: $background;
+  color: $font-color;
+  padding: 40px 120px;
+  @media (max-width: 1024px) {
+    padding: 20px 40px;
+  }
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: $grayish-violet;
+    @media (max-width: 800px) {
+      display: none;
+    }
+    span {
+      vertical-align: top;
+    }
+    span:first-of-type {
+      margin-right: 30px;
+    }
+    a:hover {
+      color: $font-color;
+    }
+    a + a {
+      margin-left: 30px;
+    }
+    button {
+      padding: 10px 20px;
+      border-radius: 20px;
+      margin-left: 30px;
+    }
+  }
+}

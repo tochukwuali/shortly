@@ -1,26 +1,67 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-function App() {
+import Header from "./component/Header/";
+import Hero from "./component/Hero/";
+import Input from "./component/Input/";
+
+const App = () => {
+  const [inputValue, setInputValue] = useState("");
+  const [link, setLink] = useState("");
+  const [isVisible, setIsVisible] = useState(false);
+  const [isEmpty, setIsEmpty] = useState(false);
+  const [isloading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+
+  const handleChange = e => {
+    setInputValue(e.target.value);
+    setIsEmpty(false);
+  };
+
+  const handleSubmit = e => {
+    setIsError(false)
+    setIsEmpty(false)
+
+    if (inputValue.trim() === "") {
+      setIsEmpty(true);
+    } else {
+      setIsLoading(true)
+      axios
+        .post("https://rel.ink/api/links/", { url: inputValue })
+        .then(({ data }) => {
+          setIsLoading(false)
+          const newLink = {
+            url: inputValue,
+            shortURL: `https://rel.ink/${data.hashid}`
+          };
+          setLink(newLink);
+          setInputValue("");
+        })
+        .catch(err => {
+          setIsError(true)
+          setIsLoading(false)
+        });
+    }
+  };
+
+  const handleNavbar = () => {
+    setIsVisible(!isVisible);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="Wrapper">
+      <Header visible={isVisible} clicked={handleNavbar} />
+      <Hero />
+      <Input 
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        empty={isEmpty}
+        error={isError}
+        loading={isloading}
+        value={inputValue}
+      />
     </div>
   );
-}
+};
 
 export default App;
