@@ -19,7 +19,7 @@ const MobileNavbar = (props) => {
       <div className={classes.MobileNav}>
         <div className={classes.HeaderContainer}>
           <div className={classes.Logo}>
-            <a href="#">
+            <a href="foo">
               <img src={Logo} alt="Logo" />
             </a>
           </div>
@@ -29,10 +29,10 @@ const MobileNavbar = (props) => {
           />
         </div>
         <div className={attachedClasses.join(' ')}>
-          <a href="#">Features</a>
-          <a href="#">Pricing</a>
-          <a href="#">Resources</a>
-          <a href="#">Login</a>
+          <a href="foo">Features</a>
+          <a href="foo">Pricing</a>
+          <a href="foo">Resources</a>
+          <a href="foo">Login</a>
           <button>Sign Up</button>
         </div>
       </div>

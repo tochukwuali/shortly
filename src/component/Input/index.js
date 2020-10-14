@@ -4,7 +4,7 @@ import Loading from "../UI/Loading/";
 
 const Input = props => {
   const [isVisible, setIsVisible] = useState(false);
-  const [isError, setIsError] = useState(false);
+//   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     if (props.empty) {

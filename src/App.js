@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 import Header from "./component/Header/";
@@ -59,6 +59,7 @@ const App = () => {
         error={isError}
         loading={isloading}
         value={inputValue}
+        link={link}
       />
     </div>
   );
