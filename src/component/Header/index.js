@@ -9,7 +9,7 @@ const Header = props => {
       <nav>
         <div>
           <span>
-            <a href={"foo"}>
+            <a href={classes}>
               <img src={Logo} alt="Logo" />
             </a>
           </span>
